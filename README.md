@@ -10,6 +10,7 @@ A better way to create and manage tournament brackets.
 - Node/NPM
 - Yarn
 - Git
+- Postman
 
 ### Downloading IntelliJ IDEA Ultimate
 Visit https://jetbrains.com to purchase the IntelliJ Ultimate. At this moment, I am not sure if you can use the free community version of IntelliJ. IF you are a student, please visit https://www.jetbrains.com/shop/eform/students to get yourself free copies of jetbrains application including the IntelliJ Ultimate IDE.
@@ -97,3 +98,7 @@ Visit https://jetbrains.com to purchase the IntelliJ Ultimate. At this moment, I
 - Go to File and select Project Structures...
 - Under Project, make sure the Project SDK is selected to Java 13.
 - Next, lets set up Gradle to use the proper JDK
+
+### Installing Postman
+- Mac users - type "brew cask install postman" into terminal.
+- PC users - visit https://postman.com and download the application
