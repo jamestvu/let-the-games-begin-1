@@ -14,9 +14,9 @@ public class User {
     private String middleName;
     private String lastName;
     private String userName;
-    private String password;
     private String email;
     private String secondaryEmail;
+    private String password;
 
     public Integer getId() {
         return id;
@@ -58,14 +58,6 @@ public class User {
         this.userName = userName;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     public String getEmail() {
         return email;
     }
@@ -80,5 +72,13 @@ public class User {
 
     public void setSecondaryEmail(String secondaryEmail) {
         this.secondaryEmail = secondaryEmail;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
