@@ -1,1 +1,26 @@
-.idea/
+### IDEs ###
+.idea/*
+.idea_modules/*
+*/**/.idea/*
+*/**/.idea_modules/*
+**/.classpath
+**/.factorypath
+**/.vscode
+**/.project
+**/.settings/*
+
+### Files ###
+.DS_Store
+*.iws
+*.iml
+*.class
+*.jar
+*.war
+*.ear
+*.jks.
+*.key
+*.crt
+*.keystore
+
+### Other ###
+**/application.properties
