@@ -13,11 +13,8 @@ public class TournamentController {
     private TournamentRepository tournamentRepository;
 
     @PostMapping(path="/add")
-    public @ResponseBody String add(@RequestParam String name, @RequestParam String description) {
+    public @ResponseBody String add(@RequestBody Tournament tournament) {
 
-        Tournament tournament = new Tournament();
-        tournament.setName(name);
-        tournament.setDescription(description);
         tournamentRepository.save(tournament);
         return "Saved";
     }
@@ -25,5 +22,10 @@ public class TournamentController {
     @GetMapping(path="/all")
     public @ResponseBody Iterable<Tournament> getAllTournaments() {
         return tournamentRepository.findAll();
+    }
+
+    // TODO
+    public Tournament getTournamentById(int id) {
+        return null;
     }
 }

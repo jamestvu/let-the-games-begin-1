@@ -1,12 +1,9 @@
 package io.letthegamesbegin.api.bracket;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
-public class Player {
+public class Player implements Comparable<Player> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -14,7 +11,10 @@ public class Player {
     private String name;
     private Integer userId;
     private int seed;
-    private int tournamentId;
+
+    @ManyToOne
+    @JoinColumn(name = "tournamentId")
+    private Tournament tournament;
 
     public int getId() {
         return id;
@@ -48,15 +48,19 @@ public class Player {
         this.seed = seed;
     }
 
-    public int getTournamentId() {
-        return tournamentId;
+    public Tournament getTournament() {
+        return tournament;
     }
 
-    public void setTournamentId(int tournamentId) {
-        this.tournamentId = tournamentId;
+    public void setTournament(Tournament tournament) {
+        this.tournament = tournament;
     }
 
     public void setUserId(Integer userId) {
         this.userId = userId;
+    }
+
+    public int compareTo(Player p) {
+        return seed - p.getSeed();
     }
 }

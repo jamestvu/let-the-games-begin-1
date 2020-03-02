@@ -1,9 +1,6 @@
 package io.letthegamesbegin.api.bracket;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class BracketNode {
@@ -11,15 +8,31 @@ public class BracketNode {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+    private int depth;
+    private int bracketDisplayId;
+
+    @OneToOne
     private Player playerOne;
+
+    @OneToOne
     private Player playerTwo;
     private int playerOneScore;
     private int playerTwoScore;
+
     private Integer winnerId;
+
+    @OneToOne
     private BracketNode bracketChildOne;
+
+    @OneToOne
     private BracketNode bracketChildTwo;
+
+    @OneToOne
     private BracketNode parentBracket;
-    private int tournamentId;
+
+    @ManyToOne
+    @JoinColumn(name = "tournamentId")
+    private Tournament tournament;
 
     public int getId() {
         return id;
@@ -77,14 +90,6 @@ public class BracketNode {
         this.parentBracket = parentBracket;
     }
 
-    public int getTournamentId() {
-        return tournamentId;
-    }
-
-    public void setTournamentId(int tournamentId) {
-        this.tournamentId = tournamentId;
-    }
-
     public int getPlayerOneScore() {
         return playerOneScore;
     }
@@ -99,5 +104,29 @@ public class BracketNode {
 
     public void setPlayerTwoScore(int playerTwoScore) {
         this.playerTwoScore = playerTwoScore;
+    }
+
+    public int getDepth() {
+        return depth;
+    }
+
+    public void setDepth(int depth) {
+        this.depth = depth;
+    }
+
+    public int getBracketDisplayId() {
+        return bracketDisplayId;
+    }
+
+    public void setBracketDisplayId(int bracketDisplayId) {
+        this.bracketDisplayId = bracketDisplayId;
+    }
+
+    public Tournament getTournament() {
+        return tournament;
+    }
+
+    public void setTournament(Tournament tournament) {
+        this.tournament = tournament;
     }
 }
